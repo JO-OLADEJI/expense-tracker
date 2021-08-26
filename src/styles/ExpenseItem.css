@@ -2,9 +2,43 @@
   width: 100%;
   padding: .5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   box-shadow: 5px 5px 5px #0000002c, -5px -5px 5px #0000002c;
   margin: 1rem 0;
   border-radius: 1rem;
+}
+
+.ExpenseItem .DateX {
+  min-width: 6rem;
+  border: 2px solid black;
+  border-radius: .7rem;
+  text-align: center;
+  padding: .5rem 0;
+}
+
+.ExpenseItem .year {
+  margin-bottom: .5rem;
+}
+
+.ExpenseItem .desc {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ExpenseItem .desc h2 {
+  padding-left: .8rem;
+}
+
+.ExpenseItem .desc div {
+  border: 1px solid black;
+  border-radius: .5rem;
+  padding: .5rem .8rem;
+  font-weight: bold;
+}
+
+.ExpenseItem .desc div > span {
+  margin-left: .1rem;
 }

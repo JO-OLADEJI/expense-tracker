@@ -8,7 +8,7 @@ const Expenses = (props) => {
       {props.allExpenses.map((data, index) => (
         <ExpenseItem
           key={index}
-          date={new Date(data.date).toDateString()}
+          date={new Date(data.date)}
           expense={data.expense}
           amount={data.amount}
         />)

@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
-.App h1 {
+.App {
+  width: 40rem;
+  margin: 0 auto;
+}
+
+.App > h1 {
   text-align: center;
 }
