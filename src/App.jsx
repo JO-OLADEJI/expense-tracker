@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import Expenses from './components/Expenses.jsx';
+import expensesData from './data/expenses.json';
 
-function App() {
+const App = () => {
+  const [allExpenses, setAllExpenses] = useState(expensesData);
+
   return (
     <div className="App">
-      <h1>Let's get started</h1>
+      <h1>Let's get started!</h1>
+      <Expenses
+        allExpenses={allExpenses}
+      />
     </div>
   );
 }
