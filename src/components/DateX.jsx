@@ -7,9 +7,9 @@ const DateX = (props) => {
 
   return (
     <div className="DateX">
-      <h4 className="month">{month}</h4>
-      <h6 className="year">{year}</h6>
-      <h1 className="day">{day}</h1>
+      <p className="month">{month}</p>
+      <p className="year">{year}</p>
+      <p className="day">{day}</p>
     </div>
   );
 }

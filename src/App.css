@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #272727;
+}
+
 .App {
   width: 40rem;
   margin: 0 auto;

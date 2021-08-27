@@ -4,17 +4,32 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: 5px 5px 5px #0000002c, -5px -5px 5px #0000002c;
   margin: 1rem 0;
-  border-radius: 1rem;
+  color: white;
+  background-color: #444444;
 }
 
-.ExpenseItem .DateX {
+.DateX {
   min-width: 6rem;
-  border: 2px solid black;
+  border: 2px solid white;
+  background-color: #2a2a2a;
   border-radius: .7rem;
   text-align: center;
   padding: .5rem 0;
+}
+
+.DateX .month {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.DateX .year {
+  font-size: .6rem;
+}
+
+.DateX .day {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .ExpenseItem .year {
@@ -33,7 +48,8 @@
 }
 
 .ExpenseItem .desc div {
-  border: 1px solid black;
+  border: 2px solid white;
+  background-color: purple;
   border-radius: .5rem;
   padding: .5rem .8rem;
   font-weight: bold;
