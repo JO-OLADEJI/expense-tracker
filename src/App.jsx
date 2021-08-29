@@ -7,10 +7,18 @@ import expensesData from './data/expenses.json';
 const App = () => {
   const [allExpenses, setAllExpenses] = useState(expensesData);
 
+  const newExpenseHandler = (newExpense) => {
+    setAllExpenses((prevState) => {
+      return [ ...prevState, newExpense ];
+    });
+  }
+
   return (
     <div className="App">
       <h1>Let's get started!</h1>
-      <NewExpense />
+      <NewExpense
+        newExpenseHandler={newExpenseHandler}
+      />
       <Expenses
         allExpenses={allExpenses}
       />

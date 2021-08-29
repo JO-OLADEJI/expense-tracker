@@ -37,12 +37,24 @@ const ExpenseForm = (props) => {
     }
   }
 
+  const resetInputs = () => {
+    setUserInputs((prevState) => {
+      return {
+        expense: '',
+        amount: '',
+        date: ''
+      }
+    });
+  }
+
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log({
+    const newExpense = {
       ...userInputs,
       date: new Date(userInputs.date)
-    });
+    };
+    props.newExpenseHandler(newExpense);
+    resetInputs();
   }
 
 

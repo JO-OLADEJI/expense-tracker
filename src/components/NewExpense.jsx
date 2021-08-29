@@ -6,7 +6,9 @@ import Card from './Card.jsx';
 const NewExpense = (props) => {
   return (
     <Card className="NewExpense">
-      <ExpenseForm />
+      <ExpenseForm
+        newExpenseHandler={props.newExpenseHandler}
+      />
     </Card>
   );
 }
