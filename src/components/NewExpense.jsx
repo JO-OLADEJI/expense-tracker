@@ -7,7 +7,7 @@ const NewExpense = (props) => {
   return (
     <Card className="NewExpense">
       <ExpenseForm
-        newExpenseHandler={props.newExpenseHandler}
+        onAddExpense={props.onSaveExpenseData}
       />
     </Card>
   );

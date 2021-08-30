@@ -47,14 +47,34 @@ const ExpenseForm = (props) => {
     });
   }
 
+  const isInfoMissing = () => {
+    const expenseIsMissing = userInputs.expense.trim() === '' ? true : false;
+    const amountIsMissing = userInputs.amount.trim() === '' ? true : false;
+    const dateIsMissing = userInputs.date.trim() === '' ? true : false;
+
+    if (!expenseIsMissing && !amountIsMissing && !dateIsMissing) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
   const submitHandler = (event) => {
     event.preventDefault();
-    const newExpense = {
-      ...userInputs,
-      date: new Date(userInputs.date)
-    };
-    props.newExpenseHandler(newExpense);
-    resetInputs();
+
+    if (isInfoMissing()) {
+      console.log('Error: expense info missing!!');
+    }
+    else {
+      const newExpense = {
+        ...userInputs,
+        amount: Number(userInputs.amount).toFixed(2),
+        date: new Date(userInputs.date)
+      };
+      props.onAddExpense(newExpense);
+      resetInputs();
+    }
   }
 
 
@@ -62,7 +82,7 @@ const ExpenseForm = (props) => {
     <form className="ExpenseForm" onSubmit={(event) => submitHandler(event)}>
       <div className="input-fields">
         <div className="expense">
-          <input 
+          <input
             type="text"
             name="expense"
             value={userInputs.expense}
@@ -71,7 +91,7 @@ const ExpenseForm = (props) => {
           <p className="labels">expense</p>
         </div>
         <div className="amount">
-          <input 
+          <input
             type="number"
             min="0.01"
             step="0.01"
@@ -82,7 +102,7 @@ const ExpenseForm = (props) => {
           <p className="labels">amount</p>
         </div>
         <div className="date">
-          <input 
+          <input
             type="date"
             min="2019-01-01"
             max={maxDate}
