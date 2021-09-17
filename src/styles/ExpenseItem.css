@@ -20,7 +20,7 @@
 
 .DateX .month {
   font-size: 0.75rem;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .DateX .year {
@@ -29,11 +29,7 @@
 
 .DateX .day {
   font-size: 2rem;
-  font-weight: bold;
-}
-
-.ExpenseItem .year {
-  margin-bottom: .5rem;
+  font-weight: 700;
 }
 
 .ExpenseItem .desc {
@@ -45,6 +41,8 @@
 
 .ExpenseItem .desc h2 {
   padding-left: .8rem;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .ExpenseItem .desc div {
@@ -52,7 +50,8 @@
   background-color: purple;
   border-radius: .5rem;
   padding: .5rem .8rem;
-  font-weight: bold;
+  font-weight: 500;
+  font-size: .9rem;
 }
 
 .ExpenseItem .desc div > span {

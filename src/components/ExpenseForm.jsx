@@ -9,6 +9,7 @@ const ExpenseForm = (props) => {
   const maxDate = maxDateYear + '-' + maxDateMonth + '-' + maxDateDay;
 
   const [userInputs, setUserInputs] = useState({ expense: '', amount: '', date: '' });
+  const [formStatus, setFormStatus] = useState('none');
 
   const inputHandler = (event) => {
     if (event.target.name === 'expense') {
@@ -38,7 +39,7 @@ const ExpenseForm = (props) => {
   }
 
   const resetInputs = () => {
-    setUserInputs((prevState) => {
+    setUserInputs(() => {
       return {
         expense: '',
         amount: '',
@@ -62,25 +63,30 @@ const ExpenseForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    // open the form if it's currently closed
+    if (formStatus === 'none') {
+      return setFormStatus(() => 'flex');
+    }
 
+    // execute if the form is opened
     if (isInfoMissing()) {
-      console.log('Error: expense info missing!!');
+      setFormStatus(() => 'none');
     }
     else {
       const newExpense = {
         ...userInputs,
         amount: Number(userInputs.amount).toFixed(2),
-        date: new Date(userInputs.date)
       };
       props.onAddExpense(newExpense);
       resetInputs();
+      setFormStatus(() => 'none');
     }
   }
 
 
   return (
     <form className="ExpenseForm" onSubmit={(event) => submitHandler(event)}>
-      <div className="input-fields">
+      <div className="input-fields" style={{ display: formStatus}}>
         <div className="expense">
           <input
             type="text"

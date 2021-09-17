@@ -1,0 +1,13 @@
+.Expenses {
+  padding: .1rem .8rem;
+  background-color: #1a1a1a;
+  margin: .5rem 0;
+}
+
+.Expenses .drop-down {
+  margin: .8rem auto 0 auto;
+  display: block;
+  width: 7rem;
+  padding: .3rem;
+  border-radius: 7px;
+}

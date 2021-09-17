@@ -7,7 +7,6 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  /* display: none; */
 }
 
 .ExpenseForm .input-fields input {
@@ -62,6 +61,6 @@
   font-size: .6rem;
   color: white;
   transition: .3s ease-out color;
-  text-transform: uppercase;
   letter-spacing: .15rem;
+  font-weight: 600;
 }
