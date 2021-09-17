@@ -5,7 +5,15 @@ import ExpenseItem from './ExpenseItem.jsx';
 
 const Expenses = (props) => {
   const [years, setYears] = useState([]);
+  const [selectedYear, setSelectedYear] = useState('all');
+  const [sortedExpense, setSortedExpense] = useState([]);
 
+  // get all the expenses to be displayed
+  useEffect(() => {
+    setSortedExpense(() => props.allExpenses);
+  }, [props.allExpenses]);
+
+  // extract all years present in the data
   useEffect(() => {
     let initial = [];
     props.allExpenses.forEach(element => {
@@ -16,17 +24,43 @@ const Expenses = (props) => {
     setYears(() => unique);
   }, [props.allExpenses]);
 
+  // filter the data based on the year
+  useEffect(() => {
+    if (selectedYear === 'all') {
+      setSortedExpense(() => props.allExpenses);
+    }
+    else {
+      const sortedList = props.allExpenses.filter(expense => {
+        return expense.date.substring(0, 4) === selectedYear;
+      });
+      setSortedExpense(() => sortedList);
+    }
+  }, [selectedYear]);
+
+  const yearChangeHandler = (e) => {
+    setSelectedYear((prev) => e.target.value);
+  }
+
+  
   return (
     <Card className="Expenses">
-      <select className="drop-down">
-        <option value="">all</option>
-        {years.map(each => (
-          <option key={each}>
-            {each}
-          </option>
-        ))}
-      </select>
-      {props.allExpenses.map((data, index) => (
+      <div className="drop-down-wrapper">
+        <i className="fas fa-sort-amount-down" />
+        <select 
+          className="drop-down"
+          value={selectedYear} 
+          onChange={e => yearChangeHandler(e)}>
+          <option value="all">all</option>
+          {years.map(each => (
+            <option 
+              key={each}
+              value={each}>
+              {each}
+            </option>
+          ))}
+        </select>
+      </div>
+      {sortedExpense.map((data, index) => (
         <ExpenseItem
           key={index}
           date={new Date(data.date)}

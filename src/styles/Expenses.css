@@ -4,10 +4,27 @@
   margin: .5rem 0;
 }
 
-.Expenses .drop-down {
+.Expenses .drop-down-wrapper {
   margin: .8rem auto 0 auto;
-  display: block;
+  text-align: center;
+}
+
+.Expenses .drop-down-wrapper i {
+  padding-right: .3rem;
+  color: white;
+}
+
+.Expenses .drop-down {
   width: 7rem;
   padding: .3rem;
   border-radius: 7px;
+  font-weight: 600;
+}
+
+.Expenses .drop-down:focus {
+  outline: none;
+}
+
+.Expenses .drop-down option {
+  font-weight: 600;
 }
